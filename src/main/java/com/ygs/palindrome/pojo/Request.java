@@ -5,15 +5,15 @@ public class Request {
 
     private String number;
 
-    private int polindromeNum;
+    private int palindromeNum;
 
     public Request(){
 
     }
 
-    public Request(String number, int polindromeNum) {
+    public Request(String number, int palindromeNum) {
         this.number = number;
-        this.polindromeNum = polindromeNum;
+        this.palindromeNum = palindromeNum;
     }
 
     public String getNumber() {
@@ -24,11 +24,11 @@ public class Request {
         this.number = number;
     }
 
-    public int getPolindromeNum() {
-        return polindromeNum;
+    public int getPalindromeNum() {
+        return palindromeNum;
     }
 
-    public void setPolindromeNum(int polindromeNum) {
-        this.polindromeNum = polindromeNum;
+    public void setPalindromeNum(int polindromeNum) {
+        this.palindromeNum = polindromeNum;
     }
 }

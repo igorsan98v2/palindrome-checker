@@ -38,7 +38,9 @@ public class PalindromeCollection {
     public PalindromeCollection(String id, ArrayList<String> palindromes) {
         this.id = id;
         this.palindromes = palindromes;
-        updateLastEl();
+        if(palindromes.size()>0){
+            updateLastEl();
+        }
     }
 
     public ArrayList<String> getPalindromes() {

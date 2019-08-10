@@ -1,0 +1,104 @@
+<!doctype html>
+<html >
+<head>
+    <title>Hello AngularJS</title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+    <link rel="stylesheet" href="loader-history.css">
+    <link rel="stylesheet" href="index.css">
+
+
+    <!--script>
+        fetch('http://localhost:8083/hello')
+        .then(response => response.json())
+        .then(commits => alert(commits));
+    </script-->
+
+</head>
+
+<body>
+<div ng-controller="PalindromeController as ctrl" ng-cloak="" ng-app="demo">
+    <p>The ID is {{greeting.id}}</p>
+    <p>The content is {{greeting.palindromesNum}}</p>
+  
+    <div class="md-padding"  layout="row" layout-align="space-around" >
+        <md-card lex-xs flex-gt-xs="25" class="palindrome-form" layout="column" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <md-input-container >
+                        <label>Number</label>
+                        <input ng-model="user.number"  required="">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Number of palindromes</label>
+                        <input ng-model="user.palindromeNum"  required="">
+                    </md-input-container>
+                    <div layout="column"  layout-align="center start">
+                        <md-button  ng-click="findPalindromes($event)" class="md-raised" >Find</md-button>
+                    </div>
+                </md-card-title-text>
+
+            </md-card-title>
+
+        </md-card>
+        <md-card lex-xs flex-gt-xs="25" fXLayout="column" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">History</span>
+                    <span class="md-subhead virtualRepeatdemoInfiniteScroll" >
+                        <md-virtual-repeat-container id="vertical-container">
+                            <div md-virtual-repeat="item in ctrl.infiniteItems" md-on-demand="" class="repeated-item" flex="">
+                                <md-button class="md-primary md-raised"  ng-click="showPrerenderedDialog($event)">
+                                    Result
+                                </md-button>
+                                {{item}}
+
+                            </div>
+                        </md-virtual-repeat-container>
+                        
+                    </span>
+                </md-card-title-text>
+
+            </md-card-title>
+
+        </md-card>
+        <div style="visibility: hidden">
+            <div class="md-dialog-container" id="myDialog">
+                <md-dialog layout-padding>
+                    <h2>Pre-Rendered Dialog</h2>
+                    <p>
+                        This is a pre-rendered dialog, which means that <code>$mdDialog</code> doesn't compile its
+                        template on each opening.
+                        <br/><br/>
+                        The Dialog Element is a static element in the DOM, which is just visually hidden.<br/>
+                        Once the dialog opens, we just fetch the element from the DOM into our dialog and upon close
+                        we restore the element back into its old DOM position.
+                    </p>
+                </md-dialog>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="controller.js"></script>
+    <script type="text/javascript">
+
+    /**
+     * You must include the dependency on 'ngMaterial'
+     */
+    angular.module('Hello', ['ngMaterial', 'ngMessages']).config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+  $mdThemingProvider.theme('dark-orange').backgroundPalette('orange').dark();
+  $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
+  $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
+});;
+  </script>
+</div>
+</body>
+</html>
